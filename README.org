@@ -1,0 +1,11 @@
+* =oc-blocks=
+
+EXPERIMENTAL
+
+The new native citation support in =org-mode= provides unmatched features and flexibility.
+This project provides remixable components for users and developers to assemble custom =org-cite= interfaces.
+
+- An "insert processor" for integration with =org-cite-insert=, and which offers:
+    - Style selection and editing.
+    - Reference insertion and editing, with configurable =completing-read=, =ivy=, and =helm= front-ends, using a common =bibtex-completion= backend
+- "follow processors" for =org-open-at-point= integration (not sure about this actually)
