@@ -61,7 +61,22 @@
         (setq oc-blocks-insert--csl-processor-cache processor)
         processor)))
 
+;; because jkitchen's code is simpler
 (defun oc-blocks-insert-select-style ()
+  "Select a style with completion."
+  (interactive)
+  (let ((completion-extra-properties '(:annotation-function  oc-blocks-annotate-style)))
+    (completing-read "Style: " oc-bibtex-styles)))
+
+(defun oc-blocks-annotate-style (s)
+  "Annotation function for selecting style."
+  (let* ((w (+  (- 5 (length s)) 20)))
+    (concat (make-string w ? )
+	    (propertize
+	     (cdr (assoc s oc-bibtex-styles))
+	     'face 'oc-blocks-insert-style-preview))))
+
+(defun oc-blocks-insert-select-style-alt ()
 "Complete a citation style for org-cite with preview."
   (interactive)
   (let* ((oc-styles (oc-blocks-insert--styles-candidates))
