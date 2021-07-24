@@ -66,7 +66,7 @@
   "Select a style with completion."
   (interactive)
   (let ((completion-extra-properties '(:annotation-function  oc-blocks-annotate-style)))
-    (completing-read "Style: " oc-bibtex-styles)))
+    (completing-read "Style: " (oc-blocks-insert--styles-candidates))))
 
 (defun oc-blocks-annotate-style (s)
   "Annotation function for selecting style."
